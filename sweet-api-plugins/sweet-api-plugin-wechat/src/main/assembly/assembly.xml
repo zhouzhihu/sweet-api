@@ -1,0 +1,25 @@
+<assembly>
+	<id>plugin</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<useProjectArtifact>false</useProjectArtifact>
+			<outputDirectory>lib</outputDirectory>
+			<outputFileNameMapping>${artifact.artifactId}-${artifact.baseVersion}.${artifact.extension}</outputFileNameMapping>
+			<!-- 将scope为provided的依赖包打包到lib目录下。 -->
+			<scope>provided</scope>
+			<includes>
+				<include>com.egrand.sweetapi.starter:sweet-api-starter-wechat</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+    <fileSets>
+        <fileSet>
+            <directory>target/plugin-classes</directory>
+            <outputDirectory>classes</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
