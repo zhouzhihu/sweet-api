@@ -31,6 +31,8 @@
         <elasticsearch.version>6.8.4</elasticsearch.version>
         <jedis.versin>2.9.0</jedis.versin>
         <druid.spring.boot.starter.version>1.2.2</druid.spring.boot.starter.version>
+        <mssql-jdbc.version>8.4.1.jre8</mssql-jdbc.version>
+        <DmJdbcDriver.version>8.1.2.79</DmJdbcDriver.version>
     </properties>
 
     <dependencyManagement>
@@ -77,6 +79,16 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.spring.boot.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>${mssql-jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dameng</groupId>
+                <artifactId>DmJdbcDriver18</artifactId>
+                <version>${DmJdbcDriver.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
