@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 /**
  * @author admin
@@ -136,12 +135,12 @@ public class ResultBody<T> implements Serializable {
     }
 
     public ResultBody<T> msg(String message) {
-        this.message = i18n(ErrorCode.getResultEnum(this.code).getMessage(), message);
+        this.message = message;
         return this;
     }
 
     public ResultBody<T> msg(String message, Object... args) {
-        this.message = String.format(i18n(ErrorCode.getResultEnum(this.code).getMessage(), message), args);
+        this.message = String.format(message, args);
         return this;
     }
 
@@ -185,26 +184,4 @@ public class ResultBody<T> implements Serializable {
                 ", timestamp=" + timestamp +
                 '}';
     }
-
-    /**
-     * 错误信息配置
-     */
-    @JSONField(serialize = false, deserialize = false)
-    @JsonIgnore
-    private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("error");
-
-    /**
-     * 提示信息国际化
-     *
-     * @param message 信息
-     * @param defaultMessage 默认信息
-     * @return 国际化信息
-     */
-    @JSONField(serialize = false, deserialize = false)
-    @JsonIgnore
-    private static String i18n(String message, String defaultMessage) {
-        return resourceBundle.containsKey(message)?resourceBundle.getString(message):defaultMessage;
-    }
-
-
 }
