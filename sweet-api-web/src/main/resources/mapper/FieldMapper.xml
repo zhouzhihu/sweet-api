@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egrand.sweetapi.web.mapper.FieldMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.egrand.sweetapi.web.model.entity.Field">
+        <id column="id" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="name" property="name"/>
+        <result column="value" property="value"/>
+        <result column="required" property="required"/>
+        <result column="default_value" property="defaultValue"/>
+        <result column="validate_type" property="validateType"/>
+        <result column="expression" property="expression"/>
+        <result column="error" property="error"/>
+        <result column="type" property="type"/>
+        <result column="is_array" property="isArray"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        parent_id,
+        name,
+        value,
+        type,
+        required,
+        default_value,
+        validate_type,
+        expression,
+        error,
+        is_array,
+        description
+    </sql>
+
+    <!--自定义关联查询-->
+    <!-- 表名 -->
+    <sql id="t_name">egd_esb_field</sql>
+    <!-- 别名 -->
+    <sql id="t_alias">egd_esb_field as model</sql>
+    <!--外键表关联定义 -->
+    <sql id="join"></sql>
+
+    <!-- 自定义查询单个实体 -->
+    <select id="getEntityMap" resultType="com.egrand.sweetapi.web.model.entity.Field">
+        SELECT * FROM
+        <include refid="t_alias"/>
+        <include refid="join"/>
+        ${ew.customSqlSegment}
+    </select>
+
+    <!-- 自定义关联查询分页 -->
+    <select id="pageList" resultType="com.egrand.sweetapi.web.model.entity.Field">
+        SELECT ${ew.select} FROM
+        <include refid="t_alias"/>
+        <include refid="join"/>
+        ${ew.customSqlSegment}
+    </select>
+</mapper>
