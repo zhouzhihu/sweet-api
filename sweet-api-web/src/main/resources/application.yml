@@ -33,25 +33,19 @@ spring:
       primary: master
       datasource:
         master:
-          url: jdbc:mysql://${MYSQL_HOST:10.1.10.92}:${MYSQL_PORT:3306}/egrand-cloud-dwork-lyffp?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8&connectTimeout=60000&socketTimeout=30000
+          url: jdbc:mysql://${MYSQL_HOST:10.1.10.92}:${MYSQL_PORT:3306}/egrand-cloud-gpc-job?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8&connectTimeout=60000&socketTimeout=30000
           username: ${MYSQL_USERNAME:root}
           password: ${MYSQL_PASSWORD:123456}
           driverClassName: com.mysql.jdbc.Driver
           type: com.alibaba.druid.pool.DruidDataSource
-    tenant:
-      enabled: true
-      url: jdbc:mysql://${TENANT_MYSQL_HOST:10.1.10.188}:${TENANT_MYSQL_PORT:3306}/egrand-cloud-ky3h-admin?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8
-      username: root
-      password: ${TENANT_MYSQL_PASSWORD:123456}
-      cron: '0 */1 * * * ?'
   wechat:
     cp:
       enable-multi: true
       multi:
         default:
           agentId: 1000006
-          corpId: wwe22a938cc608ae5f
-          secret: 2tPz2arb2qH6SYGjTv_Wt_MvntYtxVVBtPWoWNNgeLQ
+          corpId: xxx
+          secret: xxx
           token: 111
           aesKey: 111
 #        zcyj:
