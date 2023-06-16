@@ -32,7 +32,7 @@
     <!-- 动态日志级别 -->
     <jmxConfigurator/>
 
-    <appender name="esbLog" class="com.egrand.sweetapi.core.logging.LogbackAppender"></appender>
+    <appender name="SWEET_API_APPENDER" class="com.egrand.sweetapi.core.logging.LogbackAppender"></appender>
 
     <!-- 控制台的标准输出 -->
     <appender name="CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
@@ -195,6 +195,7 @@
 
     <!-- 在定义后引用APPENDER -->
     <root level="${logLevel}">
+        <appender-ref ref="SWEET_API_APPENDER"/>
         <appender-ref ref="CONSOLE_APPENDER"/>
         <appender-ref ref="ASYNC_LOG_DEBUG"/>
         <appender-ref ref="ASYNC_LOG_INFO"/>

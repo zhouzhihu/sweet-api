@@ -1,4 +1,6 @@
 server:
+  servlet:
+    context-apth: /sweet-api
   port: 19016
   max-http-header-size: 102400
   undertow:
