@@ -1,0 +1,67 @@
+{
+  "name": "sweet-editor",
+  "version": "1.0.0",
+  "private": false,
+  "description": "sweet-editor for sweet-api",
+  "main": "dist/sweet-editor.umd.min.js",
+  "scripts": {
+    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build:lib": "vue-cli-service build --name sweet-editor --target lib --formats umd-min --entry ./src/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "jsencrypt": "^3.3.2",
+    "monaco-editor": "^0.29.1",
+    "monaco-editor-webpack-plugin": "^5.0.0",
+    "qs": "^6.9.4",
+    "vue": "^2.6.11",
+    "worker-loader": "^3.0.6"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "generator-star-spacing": "off",
+      "no-tabs": "off",
+      "no-unused-vars": "off",
+      "no-console": "off",
+      "no-irregular-whitespace": "off",
+      "no-debugger": "off"
+    }
+  },
+  "files": [
+    "/dist/*",
+    "/src/*",
+    "*.js"
+  ],
+  "license": "MIT",
+  "author": "javaxd",
+  "keywords": [
+    "vue",
+    "sweet-api",
+    "sweet-editor",
+    "sweet-api-vue"
+  ]
+}
