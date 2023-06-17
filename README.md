@@ -17,11 +17,3 @@ Sweet-API是基于Java的HTTP API快速接口开发框架，线上完成接口�
 * 支持文件上传、下载、输出图片；
 
 ![技术架构](./_media/editor.png ':size=60%')
-
-## 鸣谢
-
-框架采用的开源技术如下：
-
-* [magic-api](https://gitee.com/ssssssss-team/magic-api)
-
-* [spring-brick](https://gitee.com/starblues/springboot-plugin-framework-parent)
