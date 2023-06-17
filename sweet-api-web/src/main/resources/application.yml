@@ -20,14 +20,6 @@ server:
 spring:
   application:
     name: sweet-web
-  profiles:
-    active: prod
-  servlet:
-    multipart:
-      enabled: true
-      file-size-threshold: 0
-      max-request-size: 1024MB
-      max-file-size: 1024MB
   datasource:
     dynamic:
       primary: master
