@@ -17,8 +17,6 @@
         <docker.image.prefix>10.1.10.212:8082</docker.image.prefix>
         <docker.image.project.library>library</docker.image.project.library>
         <docker.image.project.prefix>egrand-cloud</docker.image.project.prefix>
-        <docker.image.project.version>${git.commit.id.abbrev}</docker.image.project.version>
-        <docker.image.project.version.prefix>${profile.active}-</docker.image.project.version.prefix>
         <docker.image.project.main.class>com.egrand.SweetApiWebApplication</docker.image.project.main.class>
     </properties>
 
@@ -248,30 +246,6 @@
         </snapshotRepository>
     </distributionManagement>
 
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <profile.active>dev</profile.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <profile.active>prod</profile.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <profile.active>test</profile.active>
-            </properties>
-        </profile>
-    </profiles>
-
     <build>
         <plugins>
             <!-- 编译插件, 指定JDK版本 -->
@@ -303,37 +277,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- git-commit-id插件 -->
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <version>4.0.4</version>
-                <executions>
-                    <execution>
-                        <id>get-the-git-infos</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                    <prefix>git</prefix>
-                    <verbose>false</verbose>
-                    <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
-                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                    <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
-                    <format>json</format>
-                    <!-- git.commit.id.abbrev属性值的长度，取值范围在[2, 40]，默认值7 -->
-                    <abbrevLength>7</abbrevLength>
-                    <gitDescribe>
-                        <skip>false</skip>
-                        <always>false</always>
-                        <dirty>-dirty</dirty>
-                    </gitDescribe>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
@@ -345,7 +288,7 @@
                     </from>
                     <to>
                         <!--构建镜像名称，这里我使用maven中定义的项目名称-->
-                        <image>${docker.image.prefix}/${docker.image.project.prefix}/${project.artifactId}:${docker.image.project.version.prefix}${docker.image.project.version}</image>
+                        <image>${docker.image.prefix}/${docker.image.project.prefix}/${project.artifactId}:${project.version}</image>
                         <!--私有仓库的账号密码-->
                         <auth>
                             <username>admin</username>
@@ -354,7 +297,6 @@
                     </to>
                     <container>
                         <environment>
-                            <spring.profiles.active>${profile.active}</spring.profiles.active>
                             <TZ>Asia/Shanghai</TZ>
                         </environment>
                         <entrypoint>
