@@ -16,8 +16,6 @@ Sweet-API是基于Java的HTTP API快速接口开发框架，线上完成接口�
 * 支持数据库事务、SQL支持拼接，占位符，判断等语法；
 * 支持文件上传、下载、输出图片；
 
-![技术架构](./_media/editor.png ':size=60%')
-
 ## 模块介绍
 
 * sweet-core：`sweet-api`向外提供的服务接口，包括：API执行器、数据源扩展、动态插件扩展、资源管理和多租户管理等接口。
@@ -33,3 +31,9 @@ Sweet-API是基于Java的HTTP API快速接口开发框架，线上完成接口�
 * [sweet-api-web](./sweet-api-web)：采用`Spring Boot`技术为`Sweet-Api`提供`数据存储`,为`Sweet-Editor`提供`RESTful API`接口服务;
 
 * [sweet-editor](./sweet-editor)：前端在线编辑器，提供在线书写`JavaScirpt`脚本，线上完成接口开发、调试和发布；
+
+# 项目截图
+| ![整体截图](./_media/main.png "整体截图") | ![API](./_media/editor.png "API") |
+|---|---|
+| ![插件](./_media/plugin.png "插件") | ![数据源](./_media/datasource.png "数据源") |
+| ![文件管理](./_media/file.png "文件管理") | ![执行器](./_media/apiexecute.png "执行器") |
