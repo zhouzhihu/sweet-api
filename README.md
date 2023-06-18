@@ -30,6 +30,6 @@ Sweet-API是基于Java的HTTP API快速接口开发框架，线上完成接口�
 
 * sweet-api-spring-boot-starter：`sweet-api`提供的spring boot启动器；
 
-* [sweet-api-web](./sweet-api-web/README.md)：采用`Spring Boot`技术为`Sweet-Api`提供`数据存储`,为`Sweet-Editor`提供`RESTful API`接口服务;
+* [sweet-api-web](./sweet-api-web)：采用`Spring Boot`技术为`Sweet-Api`提供`数据存储`,为`Sweet-Editor`提供`RESTful API`接口服务;
 
-* sweet-editor：前端在线编辑器，提供在线书写`JavaScirpt`脚本，线上完成接口开发、调试和发布；
+* [sweet-editor](./sweet-editor)：前端在线编辑器，提供在线书写`JavaScirpt`脚本，线上完成接口开发、调试和发布；
