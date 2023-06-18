@@ -22,7 +22,7 @@ Sweet-API是基于Java的HTTP API快速接口开发框架，线上完成接口�
 
 * sweet-api：实现`sweet-api`核心框架，包括动态API实现、GraalJS实现和内置插件实现等；
 
-* sweet-api-starters：`sweet-api`启动器模块，可以理解为第三方接口的集成模块。包括多数据源管理以及扩展插件Excel、ElasticSearch、RabbitMQ、Redis、Wechat等插件的启动器实现；
+* [sweet-api-starters](./sweet-api-starters)：`sweet-api`启动器模块，可以理解为第三方接口的集成模块。包括多数据源管理以及扩展插件Excel、ElasticSearch、RabbitMQ、Redis、Wechat等插件的启动器实现；
 
 * sweet-api-plugins：利用`sweet-core`提供的服务接口扩展插件，同时提供操作API给`sweet-editor`使用。包括：ElasticSearch插件、Excel插件、RabbitMQ插件、Redis插件、Task插件和Wechat微信插件等；
 
