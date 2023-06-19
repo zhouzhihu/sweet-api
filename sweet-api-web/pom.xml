@@ -36,12 +36,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
-        <!-- 插件运行时依赖（后续会替换掉） -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-context</artifactId>
-            <version>2.2.4.RELEASE</version>
-        </dependency>
         <!-- spring boot jdbc依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
