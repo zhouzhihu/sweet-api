@@ -127,7 +127,36 @@ pom.xml中已经声明了一个插件：
 
 ![开发模式](../_media/3-dev.png ':size=60%')
 
-## 生成镜像
+## 编译和发布
+
+* 打包
+
+```text
+mvn clean install
+```
+
+* 发布
+
+在发布前，需要在`pom.xml`将仓库地址修改为自己仓库地址：
+
+```xml
+<distributionManagement>
+    <repository>
+        <id>nexus-releases</id>
+        <url>http://10.1.10.212:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+        <id>nexus-snapshots</id>
+        <url>http://10.1.10.212:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
+```
+
+```text
+mvn clean deploy
+```
+
+* 生成镜像
 
 镜像生成集成了`google`的`jib`插件，在pom.xml中已经声明，在生成镜像前需要修改pom文件，如下配置：
 
@@ -153,3 +182,54 @@ mvn clean compile jib:build -DsendCredentialsOverHttp=true
 ```
 生成镜像。
 
+## 注册中心
+
+### 注册到consul
+
+先自行安装`consul 1.9.0`，做如下配置修改：
+
+* `pom.xml`添加consul依赖：
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+    <version>2.2.4.RELEASE</version>
+</dependency>
+```
+
+* 修改`application.xml`配置：
+
+```yml
+# 放开端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+sprng:
+  cloud:
+    consul:
+      # consul注册中心的ip地址
+      host: localhost
+      # consul注册中心端口
+      port: 8500
+      discovery:
+        # 实例id(唯一标志)
+        instance-id: ${spring.application.name}:${server.port}:${random.value}
+        # 服务的名称
+        service-name: ${spring.application.name}
+        # 开启ip地址注册
+        prefer-ip-address: true
+        # 当前服务的请求ip
+        ip-address: ${spring.cloud.client.ip-address}
+        # 服务的请求端口
+        port: ${server.port}
+        # critical状态下线时间限定（Consul服务用）
+        health-check-critical-timeout: 30s
+        # 如果配置了context-path就配置，没有就不配
+        health-check-path: ${server.servlet.context-path}/actuator/health
+```
