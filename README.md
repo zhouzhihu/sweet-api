@@ -1,3 +1,5 @@
+[简介](#简介) | [特性](#特性) | [文档](https://s-sweet.gitee.io/sweet-api-docs/#/) | [模块介绍](#模块介绍) | <a target="_blank" href="https://s-sweet.gitee.io/sweet-api-docs/#/pages/changelog/">更新日志</a> | [项目截图](#项目截图)
+
 ## 简介
 Sweet-API是基于Java的HTTP API快速接口开发框架，线上完成接口开发、调试和发布，自动映射为HTTP接口。 无需定义Controller、Service、Dao、Mapper、XML、VO等Java对象即可完成常见的HTTP API接口开发。
 
